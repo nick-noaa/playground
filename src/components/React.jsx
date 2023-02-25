@@ -1,8 +1,7 @@
-import {useState} from 'react';
+import { useState } from 'react';
 
 function React() {
-
-  const [name, setName] = useState('Team')
+  const [name, setName] = useState('Team');
 
   return <div>Hello {name} This is a React Component!</div>;
 }

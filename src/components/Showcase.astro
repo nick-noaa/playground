@@ -1,12 +1,15 @@
 ---
-
 export interface Props {
   heading?: string;
   text?: string;
   showExtra?: boolean;
 }
 
-const {heading='Testing Astro!', text='Lorem ipsum dolor sit amet consectetur.', showExtra = false} = Astro.props as Props;
+const {
+  heading = 'Testing Astro!',
+  text = 'Lorem ipsum dolor sit amet consectetur.',
+  showExtra = false,
+} = Astro.props as Props;
 ---
 
 <section class="showcase">
@@ -15,23 +18,29 @@ const {heading='Testing Astro!', text='Lorem ipsum dolor sit amet consectetur.',
     <p>{text}</p>
   </div>
 
-  {showExtra && <>
-
-
-  <div class="showcase-img">
-    <img class="logos" src="//picsum.photos/300
-" alt="" />
-    <img class="logos-small" src="//picsum.photos/100
-" alt="" />
-  </div>
-  <p class="showcase-demo">
-    <small>
-      Check out these dynamic images!
-    </small>
-  </p>
-
-  </>}
-
+  {
+    showExtra && (
+      <>
+        <div class="showcase-img">
+          <img
+            class="logos"
+            src="//picsum.photos/300
+"
+            alt=""
+          />
+          <img
+            class="logos-small"
+            src="//picsum.photos/100
+"
+            alt=""
+          />
+        </div>
+        <p class="showcase-demo">
+          <small>Check out these images!</small>
+        </p>
+      </>
+    )
+  }
 </section>
 
 <style>
