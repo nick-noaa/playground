@@ -1,83 +1,53 @@
 ---
 import Navigation from './Navigation.astro';
 import Search from './Search.astro';
-import logo from '../images/logo.svg';
+import Logo from './Logo.astro';
 ---
 
 <header class="header">
   <a class="sr-only" href="#main-content">Skip Navigation</a>
 
   <div class="header__container">
-    <div class="logo">
-      <a class="logo__link" href="#">
-        <img
-          class="logo__image"
-          src={logo}
-          alt="National Centers for Environmental Information logo"
-        />
-      </a>
-    </div>
-
-    <button
-      class="mobile-nav-toggle"
-      id="menu-toggle"
-      aria-controls="primary-navigation"
-      aria-expanded="false"
-    >
-      <span class="sr-only">Menu</span>
-
-      <svg
-        class="mobile-nav-toggle__icon"
-        aria-hidden="true"
-        version="1.1"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-        x="0px"
-        y="0px"
-        viewBox="0 0 100 100"
-      >
-        <g class="mobile-nav-toggle__svg">
-          <path class="line line-1" d="M5 13h90v14H5z"></path>
-          <path class="line line-2" d="M5 43h90v14H5z"></path>
-          <path class="line line-3" d="M5 73h90v14H5z"></path>
-        </g>
-      </svg>
-    </button>
+    <Logo />
     <Navigation />
     <Search />
   </div>
 </header>
 
 <style lang="scss">
-.header {
-  background: linear-gradient(
-      to bottom,
-      rgba(9, 19, 50, 0.73),
-      rgba(0, 8, 21, 0.24)
-    ),
-    url(../../images/ncei-noaa.webp);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  overflow-x: hidden;
-  height: 100vh;
+  .sr-only {
+    display: none;
+  }
 
-  &__container {
-    display: flex;
-    gap: var(--gap, 1rem);
-    margin: 4rem;
+  .header {
+    background: linear-gradient(
+        to bottom,
+        rgba(9, 19, 50, 0.73),
+        rgba(0, 8, 21, 0.24)
+      ),
+      url(//picsum.photos/900);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-x: hidden;
+    height: 100vh;
 
-    align-items: center;
-    justify-content: space-around;
+    &__container {
+      display: flex;
+      gap: var(--gap, 1rem);
+      margin: 4rem;
 
-    @media (min-width: 900px) {
-      margin-inline: 2.5rem;
-    }
+      align-items: center;
+      justify-content: space-around;
 
-    @media (min-width: 700px) {
-      justify-content: space-between;
-      margin-inline: 2rem;
+      @media (max-width: 900px) {
+        margin-inline: 2.5rem;
+      }
+
+      @media (max-width: 700px) {
+        justify-content: space-between;
+        margin-inline: 2rem;
+      }
     }
   }
-}
 </style>

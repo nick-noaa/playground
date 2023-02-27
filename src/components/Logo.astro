@@ -1,0 +1,32 @@
+---
+import logo from '../images/logo.svg';
+---
+
+<div class="logo">
+  <a class="logo__link" href="#">
+    <img
+      class="logo__image"
+      src={logo}
+      alt="National Centers for Environmental Information logo"
+    />
+  </a>
+</div>
+
+<style>
+  .logo {
+
+  width: 15%;
+
+    // &__link {
+    // }
+
+    &__image {
+      width: 90%;
+      min-width: 18rem;
+
+      @media (max-width: 85em) {
+        width: 70%;
+      }
+    }
+  }
+</style>
