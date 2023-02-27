@@ -362,8 +362,8 @@
 </style>
 
 <script>
-  const primaryNav = document.querySelector('.navigation__list');
-  const navToggle = document.getElementById('menu-toggle');
+  const primaryNav = document.querySelector('.navigation__list') as HTMLElement;
+  const navToggle = document.getElementById('menu-toggle') as HTMLElement;
 
   navToggle.addEventListener('click', () => {
     const visibility = primaryNav.getAttribute('data-visible');

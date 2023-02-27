@@ -1,7 +1,5 @@
 ---
-
-  import searchLogo from '../images/search-white.svg'
-
+import searchLogo from '../images/search-white.svg';
 ---
 
 <div class="search">
@@ -15,11 +13,7 @@
       aria-label="search"
     />
     <button class="search-bar__submit" aria-label="submit search">
-      <img
-        src={searchLogo}
-        alt="search"
-        class="search-bar__icon"
-      />
+      <img src={searchLogo} alt="search" class="search-bar__icon" />
     </button>
   </div>
 </div>
@@ -143,29 +137,29 @@
 </style>
 
 <script>
-  // const searchLabelAnimation = () => {
-  //   const searchInput = document.querySelectorAll('.search-bar__input');
-  //   const searchLabel = document.querySelectorAll('.search-bar__label');
+  const searchLabelAnimation = () => {
+    const searchInput = document.querySelectorAll('.search-bar__input') as HTMLElement;
+    const searchLabel = document.querySelectorAll('.search-bar__label') as HTMLElement;
 
-  //   searchInput.forEach(input => {
-  //     input.addEventListener('input', function () {
-  //       searchLabel.forEach(label => {
-  //         label.style.transform = 'translateY(-10%)';
-  //         label.style.opacity = '1';
-  //         if (this.value.length === 0) {
-  //           label.style.transform = 'translateY(10%)';
-  //           label.style.opacity = '0';
-  //         }
+    searchInput.forEach(input => {
+      input.addEventListener('input', function () {
+        searchLabel.forEach(label => {
+          label.style.transform = 'translateY(-10%)';
+          label.style.opacity = '1';
+          if (this.value.length === 0) {
+            label.style.transform = 'translateY(10%)';
+            label.style.opacity = '0';
+          }
 
-  //         // May be too much.
-  //         // input.addEventListener('blur', function () {
-  //         //   this.value = '';
-  //         //   label.style.transform = 'translateY(10%)';
-  //         //   label.style.opacity = '0';
-  //         // });
-  //       });
-  //     });
-  //   });
-  // };
-  // searchLabelAnimation();
+          // May be too much.
+          // input.addEventListener('blur', function () {
+          //   this.value = '';
+          //   label.style.transform = 'translateY(10%)';
+          //   label.style.opacity = '0';
+          // });
+        });
+      });
+    });
+  };
+  searchLabelAnimation();
 </script>
