@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Showcase from '../components/Showcase.astro';
 import Features from '../components/Features.astro';
 import React from '../components/React.jsx';
+import Button from '../components/React.jsx';
 import Tabs from '../components/Tabs.astro';
 ---
 
@@ -15,7 +16,7 @@ import Tabs from '../components/Tabs.astro';
 	<Features/>
 
 <div class="center">
-	<React/>
+	<React client:visible />
 
 </div>
 </Layout>
