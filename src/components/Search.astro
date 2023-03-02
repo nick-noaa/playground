@@ -1,5 +1,5 @@
 ---
-import searchLogo from '../images/search-white.svg';
+import { Icon } from 'astro-icon';
 ---
 
 <div class="search">
@@ -13,7 +13,7 @@ import searchLogo from '../images/search-white.svg';
       aria-label="search"
     />
     <button class="search-bar__submit" aria-label="submit search">
-      <img src={searchLogo} alt="search" class="search-bar__icon" />
+      <Icon name="search-white" width="15" />
     </button>
   </div>
 </div>
@@ -93,10 +93,6 @@ import searchLogo from '../images/search-white.svg';
 
         fill: white;
         background-color: transparent;
-      }
-
-      &__icon {
-        width: 50%;
       }
 
       &:focus-within {
