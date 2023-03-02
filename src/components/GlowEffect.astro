@@ -82,3 +82,25 @@
     }
   }
 </style>
+
+<script>
+  const setGlowEffectRx = () => {
+    const glowEffects = document.querySelectorAll('.glow');
+
+    glowEffects.forEach(glowEffect => {
+      const glowLines = glowEffect.querySelectorAll('rect');
+      const rx = getComputedStyle(glowEffect, '::after').borderRadius;
+
+      //NOTE setup for any added JS micro interactions.
+      // glowEffect.addEventListener('click', () => {
+
+      // });
+
+      glowLines.forEach(line => {
+        line.setAttribute('rx', rx);
+      });
+    });
+  };
+
+  setGlowEffectRx();
+</script>

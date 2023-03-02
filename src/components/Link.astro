@@ -29,15 +29,10 @@ const {
 
 <a
   href={href}
-  class:list={[
-    'glow',
-    classes,
-    style,
-    { filled: isFilled, bordered: borderVisible },
-  ]}
+  class:list={[classes, style, { filled: isFilled, bordered: borderVisible }]}
   {...rest}
 >
-  <GlowEffect />
+  {classes == 'glow' ? <GlowEffect /> : ''}
 
   {
     icon && icon.side === 'left' && (
