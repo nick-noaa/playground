@@ -2,31 +2,19 @@
 import logo from '../images/logo.svg';
 ---
 
-<div class="logo">
-  <a class="logo__link" href="#">
-    <img
-      class="logo__image"
-      src={logo}
-      alt="National Centers for Environmental Information logo"
-    />
+<div>
+  <a href="#">
+    <img src={logo} alt="National Centers for Environmental Information logo" />
   </a>
 </div>
 
-<style>
-  .logo {
+<style lang="scss">
+  img {
+    width: 90%;
+    min-width: 18rem;
 
-  width: 15%;
-
-    // &__link {
-    // }
-
-    &__image {
-      width: 90%;
-      min-width: 18rem;
-
-      @media (max-width: 85em) {
-        width: 70%;
-      }
+    @media (max-width: 85em) {
+      width: 70%;
     }
   }
 </style>
