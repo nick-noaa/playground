@@ -1,0 +1,19 @@
+:root {
+  //NOTE BREAKPOINTS
+  @each $property, $values in $breakpoint {
+    --bp-#{"" + $property}: #{'' + $values};
+  }
+
+  //NOTE COLORS
+  @each $property, $values in $colors {
+    @each $color, $value in $values {
+      @if $property == $color {
+        --clr-#{"" + $property}: #{'' + $value};
+      } @else if $property == 'other' {
+        --clr-#{"" + $color}: #{'' + $value};
+      } @else {
+        --clr-#{"" + $property}-#{"" + $color}: #{'' + $value};
+      }
+    }
+  }
+}

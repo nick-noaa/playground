@@ -1,0 +1,50 @@
+$colors: (
+  //ELEMENT PRIMARY COLORS
+  primary:
+    (
+      primary: hsl(207, 100%, 42%),
+      dark: hsl(218, 100%, 42%),
+      darker: hsl(214, 70%, 9%),
+      darkest: hsl(216, 57%, 20%),
+      light: hsl(211, 93%, 88%),
+      lighter: hsl(210, 100%, 67%),
+      lightest: hsl(210, 100%, 77%),
+    ),
+  //ELEMENT ACCENT COLORS
+  accent:
+    (
+      accent: hsl(189, 86%, 64%),
+      dark: hsl(190, 100%, 45%),
+      light: hsl(189, 100%, 83%),
+    ),
+  //ELEMENT GRAY COLORS
+  gray:
+    (
+      gray: hsl(210, 5%, 57%),
+      dark: hsl(216, 14%, 28%),
+      light: hsl(210, 8%, 79%),
+      lighter: hsl(210, 6%, 87%),
+      lightest: hsl(216, 22%, 95%),
+    ),
+  //ELEMENT OTHER COLORS
+  other:
+    (
+      base: hsl(220, 5%, 12%),
+      black: hsl(0, 0%, 0%),
+      error: hsl(350, 79%, 50%),
+      info: hsl(173, 75%, 52%),
+      success: hsl(127, 72%, 46%),
+      warning: hsl(49, 100%, 49%),
+      white: hsl(0, 0%, 100%),
+    ),
+  //ELEMENT TRANSPARENT COLORS
+  //FIXME I will be changing these to fit 508 ~Nick 11.16.22
+  // transparent:
+  //   (
+  //     one: hsla(0, 0%, 0%, 0.7),
+  //     two: hsla(0, 0%, 0%, 0.35),
+  //     three: rgba(hsl(207, 100%, 42%), 0.5),
+  //     four: hsla(0, 0%, 100%, 0.1),
+  //     five: hsla(0, 0%, 23%, 0.6),
+  //   )
+);
