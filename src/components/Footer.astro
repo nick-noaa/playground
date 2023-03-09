@@ -10,7 +10,7 @@ import logo from '../images/logo.svg';
           <img src={logo} alt="" />
         </a>
       </div>
-      <p>This is a demo website to show how the Astro framework works.</p>
+      <p>Copyright © <span class="copyrightYear"></span> NCEI</p>
     </div>
     <div>
       <h3>Links</h3>
@@ -60,3 +60,7 @@ import logo from '../images/logo.svg';
     }
   }
 </style>
+
+<script>
+  document.querySelector('#copyrightYear').textContent = new Date().getFullYear();
+</script>
