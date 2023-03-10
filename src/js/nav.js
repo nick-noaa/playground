@@ -1,6 +1,6 @@
 
-  const primaryNav = document.querySelector('ul') as HTMLElement;
-  const navToggle = document.getElementById('menu-toggle') as HTMLElement;
+  const primaryNav = document.querySelector('ul');
+  const navToggle = document.getElementById('menu-toggle');
 
   navToggle.addEventListener('click', () => {
     const visibility = primaryNav.getAttribute('data-visible');

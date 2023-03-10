@@ -1,18 +1,18 @@
 ---
-// import { Icon } from 'astro-icon';
+import { Icon } from 'astro-icon';
 
-import logo from '../icons/logo.svg';
+// import logo from '../icons/logo.svg';
 ---
 
 <div>
   <a href="#">
-    <img src={logo} alt="National Centers for Environmental Information logo" />
-    <!-- <Icon name="logo" /> -->
+    <!-- <img src={logo} alt="National Centers for Environmental Information logo" /> -->
+    <Icon name="logo" class="logo" />
   </a>
 </div>
 
 <style lang="scss">
-  img {
+  .logo {
     width: 90%;
     min-width: 18rem;
 

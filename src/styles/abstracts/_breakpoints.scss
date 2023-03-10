@@ -10,3 +10,14 @@ $breakpoint: (
   desktop-lg: 75em,
   bigScreen: 80em
 );
+
+//ELEMENT MEDIA QUERY MIXINS
+@mixin respond($key, $width: 'max-width', $size: map-get($breakpoint, $key)) {
+  @media ($width: $size) {
+    @content;
+  }
+}
+
+/* custom-media-queries */
+// @custom-media --phone (max-width: 30em);
+// @custom-media --desktop (max-width: 68.75em);

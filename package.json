@@ -19,6 +19,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "postcss-preset-env": "^8.0.1",
     "sass": "^1.58.3"
   }
 }
