@@ -19,20 +19,21 @@ import { Icon } from 'astro-icon';
 </div>
 
 <style>
+  @import '../styles/abstracts/breakpoints.css';
   .search {
     position: relative;
     width: 18rem;
 
-      & label {
-        position: absolute;
-        left: 4.5rem;
-        top: -2.4rem;
-        z-index: 10;
-        opacity: 0;
-        transition: transform 300ms ease-out;
-        color: white;
-        font-size: 2rem;
-      }
+    & label {
+      position: absolute;
+      left: 4.5rem;
+      top: -2.4rem;
+      z-index: 10;
+      opacity: 0;
+      transition: transform 300ms ease-out;
+      color: white;
+      font-size: 2rem;
+    }
 
     & .search-bar {
       --size: 3.5rem;
@@ -47,7 +48,7 @@ import { Icon } from 'astro-icon';
       width: 100%;
       max-width: 18rem;
       color: white;
-      @media (max-width: 700px) {
+      @media (--tablet) {
         display: none;
       }
       & input {
@@ -100,14 +101,10 @@ import { Icon } from 'astro-icon';
   }
 </style>
 
-<script>
+<script @component>
   const searchLabelAnimation = () => {
-    const searchInput = document.querySelectorAll(
-      '.search-bar__input'
-    ) as HTMLElement;
-    const searchLabel = document.querySelectorAll(
-      '.search-bar__label'
-    ) as HTMLElement;
+    const searchInput = document.querySelectorAll('input');
+    const searchLabel = document.querySelectorAll('label');
     searchInput.forEach(input => {
       input.addEventListener('input', function () {
         searchLabel.forEach(label => {

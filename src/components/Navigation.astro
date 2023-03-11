@@ -27,11 +27,12 @@ import navData from '../data/navData';
 </nav>
 
 <style>
+  @import '../styles/abstracts/breakpoints.css';
   ul {
     display: flex;
     gap: var(--gap, 1em);
     list-style: none;
-    @media (max-width: 700px) {
+    @media (--tablet) {
       --gap: 2em;
       position: fixed;
       inset: 0 0 0 30%;
@@ -46,13 +47,13 @@ import navData from '../data/navData';
         backdrop-filter: blur(1rem);
       }
     }
-    @media (max-width: 700px) {
+    @media (--tablet) {
       --gap: clamp(1.5rem, 5vw, 3rem);
       padding-block: 22em;
       padding-inline: clamp(3rem, 7vw, 10rem);
     }
     &[data-visible='true'] {
-      @media (max-width: 700px) {
+      @media (--tablet) {
         transform: translateX(0%);
       }
     }
