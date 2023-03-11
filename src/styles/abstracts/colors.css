@@ -1,0 +1,9 @@
+root: {
+  --clr-primary: '207, 100%, 42%';
+  --clr-primary-dark: hsl(218, 100%, 42%);
+  --clr-primary-darker: hsl(214, 70%, 9%);
+  --clr-primary-darkest: hsl(216, 57%, 20%);
+  --clr-primary-light: hsl(211, 93%, 88%);
+  --clr-primary-lighter: hsl(210, 100%, 67%);
+  --clr-primary-lightest: hsl(210, 100%, 77%);
+}
