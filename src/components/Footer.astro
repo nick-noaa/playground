@@ -10,7 +10,7 @@ import logo from '../images/logo.svg';
           <img src={logo} alt="" />
         </a>
       </div>
-      <p>This is a demo website to show how the Astro framework works.</p>
+      <p>Copyright © <span class="copyrightYear"></span> NCEI</p>
     </div>
     <div>
       <h3>Links</h3>
@@ -48,15 +48,18 @@ import logo from '../images/logo.svg';
   .footer div:nth-child(1) {
     text-align: left;
   }
-
   .footer img {
     height: 35px;
     vertical-align: middle;
   }
-
   @media (max-width: 500px) {
     .footer div:nth-child(2) {
       display: none;
     }
   }
 </style>
+
+<script>
+  document.querySelector('#copyrightYear').textContent =
+    new Date().getFullYear();
+</script>

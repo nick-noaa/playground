@@ -1,37 +1,8 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Showcase from '../components/Showcase.astro';
-import Features from '../components/Features.astro';
-import React from '../components/React.jsx';
-import Button from '../components/React.jsx';
-import Tabs from '../components/Tabs.astro';
+import Layout from '../layouts/Layout.astro';
+import Alerts from '../components/Alerts.astro';
 ---
 
 <Layout>
-	<Showcase showExtra/>
-	<h1>Testing Astro!</h1>
-
-	<Tabs headings={['Stuff', 'More Stuff', 'And More Stuff']} contents={['lorem alkdfj akldj lkdf', 'aldfjdfklfjja klasdfj kljaflk adkei l', 'aldkfj aklajd kakdj kajdk']} activeTextColor="yellow"/>
-
-	<Features/>
-
-<div class="center">
-	<React client:visible />
-
-</div>
+  <Alerts />
 </Layout>
-
-<style>
-h1 {
-text-align: center;
-margin-block: 2em;
-}
-
-.center {
-	text-align: center;
-	font-size: 2rem;
-	margin-block: 5em;
-	background-color: darkred;
-	color: white;
-}
-</style>

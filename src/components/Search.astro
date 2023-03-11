@@ -1,0 +1,131 @@
+---
+import { Icon } from 'astro-icon';
+---
+
+<div class="search">
+  <label for="search-bar" class="search-bar__label">Search</label>
+  <div class="search-bar">
+    <input
+      type="text"
+      id="search-bar"
+      class="search-bar__input"
+      placeholder="Search"
+      aria-label="search"
+    />
+    <button class="search-bar__submit" aria-label="submit search">
+      <Icon name="search-white" width="15" />
+    </button>
+  </div>
+</div>
+
+<style>
+  .search {
+    position: relative;
+    width: 18rem;
+
+      & label {
+        position: absolute;
+        left: 4.5rem;
+        top: -2.4rem;
+        z-index: 10;
+        opacity: 0;
+        transition: transform 300ms ease-out;
+        color: white;
+        font-size: 2rem;
+      }
+
+    & .search-bar {
+      --size: 3.5rem;
+      border: 3px solid white;
+      display: flex;
+      border-radius: 5rem;
+      padding: 3px;
+      position: relative;
+      transition: width 300ms cubic-bezier(0.18, 0.89, 0.32, 1.15);
+      overflow: hidden;
+      animation: fadeIn 3s;
+      width: 100%;
+      max-width: 18rem;
+      color: white;
+      @media (max-width: 700px) {
+        display: none;
+      }
+      & input {
+        font-size: 2rem;
+        padding: 0 0.5em 0 25%;
+        border: 0;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        line-height: calc(var(--size) - 3px);
+        cursor: pointer;
+        background-color: transparent;
+        color: inherit;
+        @media (max-width: 900px) {
+          font-size: 1.5rem;
+          padding: 0 0.5em 0 18%;
+        }
+        &::placeholder {
+          color: lightgray;
+        }
+        &:focus {
+          outline: 0;
+        }
+      }
+      & button {
+        font-size: 2rem;
+        cursor: pointer;
+        border: 0;
+        border-radius: 50%;
+        width: calc(var(--size) - 10px);
+        height: calc(var(--size) - 10px);
+        margin-left: auto;
+        transition: background-color 150ms ease-in-out;
+        fill: white;
+        background-color: transparent;
+      }
+      &:focus-within {
+        .search-bar__submit {
+          background-color: lightbluue;
+          fill: white;
+          &:focus,
+          &:hover {
+            outline: 0;
+            box-shadow: 0 0 10px var(--clr-transparent-two);
+          }
+        }
+      }
+    }
+  }
+</style>
+
+<script>
+  const searchLabelAnimation = () => {
+    const searchInput = document.querySelectorAll(
+      '.search-bar__input'
+    ) as HTMLElement;
+    const searchLabel = document.querySelectorAll(
+      '.search-bar__label'
+    ) as HTMLElement;
+    searchInput.forEach(input => {
+      input.addEventListener('input', function () {
+        searchLabel.forEach(label => {
+          label.style.transform = 'translateY(-10%)';
+          label.style.opacity = '1';
+          if (this.value.length === 0) {
+            label.style.transform = 'translateY(10%)';
+            label.style.opacity = '0';
+          }
+          // May be too much.
+          // input.addEventListener('blur', function () {
+          //   this.value = '';
+          //   label.style.transform = 'translateY(10%)';
+          //   label.style.opacity = '0';
+          // });
+        });
+      });
+    });
+  };
+  searchLabelAnimation();
+</script>

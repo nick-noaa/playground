@@ -1,0 +1,19 @@
+---
+import { Icon } from 'astro-icon';
+---
+
+<div>
+  <a href="#">
+    <Icon name="logo" class="logo" />
+  </a>
+</div>
+
+<style>
+  .logo {
+    width: 90%;
+    min-width: 18rem;
+    @media (max-width: 85em) {
+      width: 70%;
+    }
+  }
+</style>

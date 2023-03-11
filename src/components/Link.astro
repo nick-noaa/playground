@@ -1,0 +1,94 @@
+---
+import { Icon } from 'astro-icon';
+import GlowEffect from './GlowEffect.astro';
+export interface Props {
+  text: string;
+  href: string;
+  style: 'primary' | 'secondary';
+  icon?: {
+    name: string;
+    side: 'left' | 'right';
+  };
+  isFilled?: boolean;
+  borderVisible?: boolean;
+  classes?: string;
+}
+const {
+  text,
+  href,
+  style,
+  icon,
+  isFilled = true,
+  borderVisible = false,
+  classes,
+  ...rest
+} = Astro.props as Props;
+---
+
+<a
+  href={href}
+  class:list={[classes, style, { filled: isFilled, bordered: borderVisible }]}
+  {...rest}
+>
+  {classes == 'glow' ? <GlowEffect /> : ''}
+
+  {
+    icon && icon.side === 'left' && (
+      <Icon name={icon.name} height="24" width="24" />
+    )
+  }
+
+  <span>{text}</span>
+
+  {
+    icon && icon.side === 'right' && (
+      <Icon name={icon.name} height="24" width="24" />
+    )
+  }
+</a>
+
+<style>
+  a {
+    text-decoration: none;
+    color: white;
+    padding: 1em;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1.8rem;
+    outline: none;
+    @media (max-width: 900px) {
+      padding: 0.8em;
+    }
+    position: relative;
+    z-index: 1;
+    &:is(:hover, :focus) {
+      color: blue;
+      transition: color 25ms ease-in;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      z-index: -1;
+      border-radius: 8px;
+      transform: scaleX(0);
+      transition: transform 20ms ease-in;
+    }
+    &:is(:hover, :focus)::after {
+      transform: scaleX(1);
+      animation: scale-up-center 100ms cubic-bezier(0.39, 0.575, 0.565, 1) both;
+    }
+  }
+  @keyframes scale-up-center {
+    0% {
+      transform: scale(0.5);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+</style>
