@@ -21,7 +21,7 @@ root: {
   --clr-gray-light: 210 8% 79%;
   --clr-gray-lighter: 210 6% 87%;
   --clr-gray-lightest: 216 22% 95%;
-  --clr-gray-white: 0 0% 100%;
+  --clr-white: 0 0% 100%;
 
   /* Alerts */
   --clr-error: 350 79% 50%;

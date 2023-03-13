@@ -7,7 +7,7 @@ const alertBody = alerts[0].body[0];
 ---
 
 <div class="alert">
-  <Icon name="mdi:lightbulb" width="25" color="var(--clr-base)" />
+  <Icon name="mdi:lightbulb" class="icon" />
   <div class="content">
     <h2>{alertTitle.value}</h2>
     <Fragment set:html={alertBody.processed} />
@@ -16,21 +16,24 @@ const alertBody = alerts[0].body[0];
 
 <style>
   .alert {
-    color: white;
-    background-color: hsl(var(--clr-info));
+    color: hsl(var(--clr-white));
+    background-color: hsl(var(--clr-info) / 65%);
     padding: 1em;
     max-width: 50rem;
     margin: 5rem auto;
-    font-size: 15px;
+    font-size: var(--fs-3);
     display: flex;
     align-items: flex-start;
     gap: 0.5em;
-    border-left: 15px solid hsl(var(--clr-accent));
-  }
-  .content {
+    border-left: 15px solid hsl(var(--clr-info));
   }
   h2 {
-    font-size: 20px;
+    font-size: var(--fs-4);
     padding-bottom: 0.5em;
+  }
+
+  & .icon {
+    color: hsl(var(--clr-base));
+    width: 3rem;
   }
 </style>
