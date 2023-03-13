@@ -1,9 +1,31 @@
 root: {
-  --clr-primary: '207, 100%, 42%';
-  --clr-primary-dark: hsl(218, 100%, 42%);
-  --clr-primary-darker: hsl(214, 70%, 9%);
-  --clr-primary-darkest: hsl(216, 57%, 20%);
-  --clr-primary-light: hsl(211, 93%, 88%);
-  --clr-primary-lighter: hsl(210, 100%, 67%);
-  --clr-primary-lightest: hsl(210, 100%, 77%);
+  /* Primary */
+  --clr-primary: 207 100% 42%;
+  --clr-primary-dark: 218 100% 42%;
+  --clr-primary-darker: 214 70% 9%;
+  --clr-primary-darkest: 216 57% 20%;
+  --clr-primary-light: 211 93% 88%;
+  --clr-primary-lighter: 210 100% 67%;
+  --clr-primary-lightest: 210 100% 77%;
+
+  /* Accent */
+  --clr-accent: 189 86% 64%;
+  --clr-dark: 190 100% 45%;
+  --clr-light: 189 100% 83%;
+
+  /* Gray */
+  --clr-base: 220 5% 12%;
+  --clr-black: 0 0% 0%;
+  --clr-gray: 210 5% 57%;
+  --clr-gray-dark: 216 14% 28%;
+  --clr-gray-light: 210 8% 79%;
+  --clr-gray-lighter: 210 6% 87%;
+  --clr-gray-lightest: 216 22% 95%;
+  --clr-gray-white: 0 0% 100%;
+
+  /* Alerts */
+  --clr-error: 350 79% 50%;
+  --clr-info: 173 75% 52%;
+  --clr-success: 127 72% 46%;
+  --clr-warning: 49 100% 49%;
 }
