@@ -28,6 +28,10 @@ import navData from '../data/navData';
 
 <style>
   ul {
+    --lightness: var(--clr-black-l);
+    --shade: 0.5;
+    --background: hsl(var(--clr-bw-hs) var(--lightness) / var(--shade));
+
     display: flex;
     gap: var(--gap, 1em);
     list-style: none;
@@ -37,12 +41,15 @@ import navData from '../data/navData';
       inset: 0 0 0 30%;
       flex-direction: column;
       padding: min(30vh, 10rem) 2em;
-      background: hsl(0, 0%, 0%, 0.5);
+      background: var(--background);
       z-index: 1000;
       transform: translateX(100%);
       transition: transform 350ms ease-out;
       @supports (backdrop-filter: blur(1rem)) {
-        background: hsl(0, 0%, 100%, 0.1);
+        --lightness: var(--clr-white-l);
+        --shade: 0.2;
+
+        background: var(--background);
         backdrop-filter: blur(1rem);
       }
     }

@@ -16,21 +16,22 @@ const alertBody = alerts[0].body[0];
 
 <style>
   .alert {
-    color: white;
-    background-color: hsl(var(--clr-info));
+    color: var(--clr-white);
+    background-color: var(--clr-info);
     padding: 1em;
     max-width: 50rem;
     margin: 5rem auto;
-    font-size: 15px;
+    font-size: var(--fs-1);
     display: flex;
     align-items: flex-start;
     gap: 0.5em;
-    border-left: 15px solid hsl(var(--clr-accent));
+    border-left: 15px solid
+      hsl(var(--clr-info-hs) calc(var(--clr-info-l) - 20%));
   }
   .content {
   }
   h2 {
-    font-size: 20px;
+    font-size: var(--fs-4);
     padding-bottom: 0.5em;
   }
 </style>

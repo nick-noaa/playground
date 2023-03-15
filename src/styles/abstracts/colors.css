@@ -1,31 +1,75 @@
 root: {
   /* Primary */
-  --clr-primary: 207 100% 42%;
-  --clr-primary-dark: 218 100% 42%;
-  --clr-primary-darker: 214 70% 9%;
-  --clr-primary-darkest: 216 57% 20%;
-  --clr-primary-light: 211 93% 88%;
-  --clr-primary-lighter: 210 100% 67%;
-  --clr-primary-lightest: 210 100% 77%;
+  --clr-primary-hs: 207 100%;
+  --clr-primary-l: 42%;
+  --clr-primary-hsl: var(--clr-primary-hs) var(--clr-primary-l);
+
+  --clr-primary: hsl(var(--clr-primary-hsl));
+  --clr-primary-dark: hsl(var(--clr-primary-hs) calc(var(--clr-primary-l) - 10%));
+  --clr-primary-light: hsl(var(--clr-primary-hs) calc(var(--clr-primary-l) + 10%));
 
   /* Accent */
-  --clr-accent: 189 86% 64%;
-  --clr-dark: 190 100% 45%;
-  --clr-light: 189 100% 83%;
+  --clr-accent-hs: 189 86%;
+  --clr-accent-l: 64%;
+  --clr-accent-hsl: var(--clr-accent-hs) var(--clr-accent-l);
+
+  --clr-accent: hsl(var(--clr-accent-hsl));
+
+  /* Black & White */
+  --clr-bw-hs: 0 0%;
+
+  /* Black */
+  --clr-black-l: 0%;
+  --clr-black-hsl: var(--clr-bw-hs) var(--clr-black-l);
+
+  --clr-black: hsl(var(--clr-black-hsl));
+
+  /* White */
+  --clr-white-l: 100%;
+  --clr-white-hsl: var(--clr-bw-hs) var(--clr-white-l);
+
+  --clr-white: hsl(var(--clr-white-hsl));
+
+  /* Base */
+  --clr-base-hs: 220 5%;
+  --clr-base-l: 12%;
+  --clr-base-hsl: var(--clr-base-hs) var(--clr-base-l);
+
+  --clr-base: hsl(var(--clr-base-hsl));
 
   /* Gray */
-  --clr-base: 220 5% 12%;
-  --clr-black: 0 0% 0%;
-  --clr-gray: 210 5% 57%;
-  --clr-gray-dark: 216 14% 28%;
-  --clr-gray-light: 210 8% 79%;
-  --clr-gray-lighter: 210 6% 87%;
-  --clr-gray-lightest: 216 22% 95%;
-  --clr-gray-white: 0 0% 100%;
+  --clr-gray-hs: 210 5%;
+  --clr-gray-l: 57%;
+  --clr-gray-hsl: var(--clr-gray-hs) var(--clr-gray-l);
+
+  --clr-gray: hsl(var(--clr-gray-hsl));
 
   /* Alerts */
-  --clr-error: 350 79% 50%;
-  --clr-info: 173 75% 52%;
-  --clr-success: 127 72% 46%;
-  --clr-warning: 49 100% 49%;
+
+  /* Error */
+  --clr-error-hs: 350 79%;
+  --clr-error-l: 50%;
+  --clr-error-hsl: var(--clr-error-hs) var(--clr-error-l);
+
+  --clr-error: hsl(var(--clr-error-hsl));
+
+  /* Info */
+  --clr-info-hs: 173 75%;
+  --clr-info-l: 52%;
+  --clr-info-hsl: var(--clr-info-hs) var(--clr-info-l);
+
+  --clr-info: hsl(var(--clr-info-hsl));
+
+  --clr-success-hs: 127 72%;
+  --clr-success-l: 46%;
+  --clr-success-hsl: var(-clr-success-hs) var(--clr-success-l);
+
+  --clr-success: hsl(var(--clr-success-hsl));
+
+  /* Warning */
+  --clr-warning-hs: 49 100%;
+  --clr-warning-l: 49%;
+  --clr-warning-hsl: var(--clr-warning-hs) var(--clr-warning-l);
+
+  --clr-warning: hsl(var(--clr-warngin-hsl));
 }

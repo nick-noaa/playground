@@ -19,7 +19,6 @@ import { Icon } from 'astro-icon';
 </div>
 
 <style>
-  @import '../styles/abstracts/breakpoints.css';
   .search {
     position: relative;
     width: 18rem;
@@ -31,13 +30,13 @@ import { Icon } from 'astro-icon';
       z-index: 10;
       opacity: 0;
       transition: transform 300ms ease-out;
-      color: white;
-      font-size: 2rem;
+      color: var(--clr-white);
+      font-size: var(--fs-2);
     }
 
     & .search-bar {
       --size: 3.5rem;
-      border: 3px solid white;
+      border: 3px solid var(--clr-white);
       display: flex;
       border-radius: 5rem;
       padding: 3px;
@@ -47,12 +46,12 @@ import { Icon } from 'astro-icon';
       animation: fadeIn 3s;
       width: 100%;
       max-width: 18rem;
-      color: white;
+      color: var(--clr-white);
       @media (--tablet) {
         display: none;
       }
       & input {
-        font-size: 2rem;
+        font-size: var(--fs-4);
         padding: 0 0.5em 0 25%;
         border: 0;
         position: absolute;
@@ -63,19 +62,19 @@ import { Icon } from 'astro-icon';
         cursor: pointer;
         background-color: transparent;
         color: inherit;
-        @media (max-width: 900px) {
-          font-size: 1.5rem;
-          padding: 0 0.5em 0 18%;
+        @media (--desktop) {
+          font-size: var(--fs-1);
+          padding: 0 0.2em 0 20%;
         }
         &::placeholder {
-          color: lightgray;
+          color: var(--clr-gray);
         }
         &:focus {
-          outline: 0;
+          outline: transparent;
         }
       }
       & button {
-        font-size: 2rem;
+        font-size: var(--fs-1);
         cursor: pointer;
         border: 0;
         border-radius: 50%;
@@ -83,17 +82,17 @@ import { Icon } from 'astro-icon';
         height: calc(var(--size) - 10px);
         margin-left: auto;
         transition: background-color 150ms ease-in-out;
-        fill: white;
+        fill: var(--clr-white);
         background-color: transparent;
       }
       &:focus-within {
         .search-bar__submit {
-          background-color: lightbluue;
-          fill: white;
+          background-color: var(--clr-primary);
+          fill: var(--clr-white);
           &:focus,
           &:hover {
-            outline: 0;
-            box-shadow: 0 0 10px var(--clr-transparent-two);
+            outline: transparent;
+            box-shadow: 0 0 10px var(--clr-white);
           }
         }
       }
