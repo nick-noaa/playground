@@ -2,12 +2,23 @@
 import { Icon } from 'astro-icon';
 const response = await fetch('https://www.ncei.noaa.gov/alerts/api');
 const { ...alerts } = await response.json();
+const alertType = alerts[0].field_alert_type[0].value;
 const alertTitle = alerts[0].title[0];
 const alertBody = alerts[0].body[0];
+let iconName, className;
+
+if (alertType == 'severity-high')
+  (iconName = 'mdi:lightning-bolt'), (className = 'error');
+
+if (alertType == 'warning') (iconName = 'mdi:alert'), (className = 'warning');
+
+if (alertType == 'info') (iconName = 'mdi:lightbulb'), (className = 'info');
+
+if (alertType == 'success') (iconName = 'mdi:check'), (className = 'success');
 ---
 
-<div class="alert">
-  <Icon name="mdi:lightbulb" width="25" color="var(--clr-base)" />
+<div class:list={`alert ${className}`}>
+  <Icon name={iconName} width="25" color="var(--clr-base)" />
   <div class="content">
     <h2>{alertTitle.value}</h2>
     <Fragment set:html={alertBody.processed} />
@@ -15,9 +26,29 @@ const alertBody = alerts[0].body[0];
 </div>
 
 <style>
+  .error {
+    --alert-bg-hs: var(--clr-error-hs);
+    --alert-bg-l: var(--clr-error-l);
+    --alert-bg: hsl(var(--alert-bg-hs) var(--alert-bg-l));
+  }
+  .info {
+    --alert-bg-hs: var(--clr-info-hs);
+    --alert-bg-l: var(--clr-info-l);
+    --alert-bg: hsl(var(--alert-bg-hs) var(--alert-bg-l));
+  }
+  .warning {
+    --alert-bg-hs: var(--clr-warning-hs);
+    --alert-bg-l: var(--clr-warning-l);
+    --alert-bg: hsl(var(--alert-bg-hs) var(--alert-bg-l));
+  }
+  .success {
+    --alert-bg-hs: var(--clr-success-hs);
+    --alert-bg-l: var(--clr-success-l);
+    --alert-bg: hsl(var(--alert-bg-hs) var(--alert-bg-l));
+  }
+
   .alert {
-    color: var(--clr-white);
-    background-color: var(--clr-info);
+    background-color: var(--alert-bg);
     padding: 1em;
     max-width: 50rem;
     margin: 5rem auto;
@@ -26,12 +57,11 @@ const alertBody = alerts[0].body[0];
     align-items: flex-start;
     gap: 0.5em;
     border-left: 15px solid
-      hsl(var(--clr-info-hs) calc(var(--clr-info-l) - 20%));
-  }
-  .content {
-  }
-  h2 {
-    font-size: var(--fs-4);
-    padding-bottom: 0.5em;
+      hsl(var(--alert-bg-hs) calc(var(--alert-bg-l) - 20%));
+
+    h2 {
+      font-size: var(--fs-3);
+      padding-bottom: 0.5em;
+    }
   }
 </style>
