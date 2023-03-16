@@ -1,5 +1,6 @@
 ---
 import Header from '../components/Header.astro';
+import Alerts from '../components/Alerts.astro';
 import '../styles/global.css';
 export interface Props {
   title?: string;
@@ -23,6 +24,8 @@ const { title = 'NCEI Astro Test' } = Astro.props as Props;
   </head>
   <body>
     <Header />
+
+    <Alerts />
     <slot />
   </body>
 </html>

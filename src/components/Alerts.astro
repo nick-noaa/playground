@@ -10,6 +10,9 @@ const { ...alerts } = await response.json();
 
 // Alert info
 // const alertTitle = alerts[0].title[0].value;
+// const alertReferenceId = alerts[0].field_node_reference[0].target_id;
+// const alertReferenceUrl = alerts[0].field_node_reference[0].url;
+const alertReferenceUrl = '/';
 const alertType = alerts[0].field_alert_type[0].value;
 const alertBody = alerts[0].body[0].processed.replace(/(<([^>]+)>)/gi, '');
 
@@ -22,30 +25,36 @@ alertCreatedDate = changeDateFormat(alertCreatedDate);
 alertEndDate = changeDateFormat(alertEndDate);
 todayDate = changeDateFormat(todayDate);
 
+const currentPath = Astro.url.pathname;
+
 // Dynamicly Changing styles
 let iconName, className;
 
 if (alertType == 'severity-high')
   (iconName = 'mdi:lightning-bolt'), (className = 'error');
 
-if (alertType == 'warning') (iconName = 'mdi:alert'), (className = 'warning');
+if (alertType == 'severity-medium')
+  (iconName = 'mdi:alert'), (className = 'warning');
 
-if (alertType == 'info') (iconName = 'mdi:lightbulb'), (className = 'info');
+if (alertType == 'severity-low')
+  (iconName = 'mdi:lightbulb'), (className = 'info');
 
 if (alertType == 'success') (iconName = 'mdi:check'), (className = 'success');
-
-if (todayDate == alertEndDate) {
-  className = 'sr-only';
-}
 ---
 
-<div class:list={`alert ${className}`}>
-  <Icon name={iconName} width="30" color="var(--clr-base)" />
-  <p>
-    <span>{alertCreatedDate}:</span>
-    {alertBody}
-  </p>
-</div>
+{
+  todayDate == alertEndDate || currentPath != alertReferenceUrl ? (
+    ''
+  ) : (
+    <div class:list={`alert ${className}`}>
+      <Icon name={iconName} width="30" color="var(--clr-base)" />
+      <p>
+        <span>{alertCreatedDate}:</span>
+        {alertBody}
+      </p>
+    </div>
+  )
+}
 
 <style>
   .error {
@@ -71,15 +80,14 @@ if (todayDate == alertEndDate) {
 
   .alert {
     background-color: hsl(var(--alert-bg-hs) calc(var(--alert-bg-l) + 30%));
-    padding: 0.5em;
-    max-width: 50rem;
-    margin: 5rem auto;
-    font-size: var(--fs-1);
+    padding: 1em;
+    width: 100%;
+    font-size: var(--fs-2);
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 0.5em;
     border-left: 15px solid var(--alert-bg);
-    line-height: 1.4;
+    margin-bottom: 5rem;
   }
 
   span {
