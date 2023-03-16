@@ -12,7 +12,7 @@ const { ...alerts } = await response.json();
 // const alertTitle = alerts[0].title[0].value;
 // const alertReferenceId = alerts[0].field_node_reference[0].target_id;
 // const alertReferenceUrl = alerts[0].field_node_reference[0].url;
-const alertReferenceUrl = '/';
+const alertReferenceUrl = '/news';
 const alertType = alerts[0].field_alert_type[0].value;
 const alertBody = alerts[0].body[0].processed.replace(/(<([^>]+)>)/gi, '');
 
