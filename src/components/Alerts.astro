@@ -1,10 +1,20 @@
 ---
 import { Icon } from 'astro-icon';
+
+import changeDateFormat from '../js/dateFunctions.js';
 const response = await fetch('https://www.ncei.noaa.gov/alerts/api');
 const { ...alerts } = await response.json();
+// const alertTitle = alerts[0].title[0].value;
 const alertType = alerts[0].field_alert_type[0].value;
-const alertTitle = alerts[0].title[0];
-const alertBody = alerts[0].body[0];
+const alertBody = alerts[0].body[0].processed.replace(/(<([^>]+)>)/gi, '');
+
+let alertCreatedDate = alerts[0].created[0].value;
+let alertEndDate = alerts[0].field_end_date[0].value;
+let todayDate = new Date();
+
+alertCreatedDate = changeDateFormat(alertCreatedDate);
+alertEndDate = changeDateFormat(alertEndDate);
+todayDate = changeDateFormat(todayDate);
 
 let iconName, className;
 
@@ -16,14 +26,18 @@ if (alertType == 'warning') (iconName = 'mdi:alert'), (className = 'warning');
 if (alertType == 'info') (iconName = 'mdi:lightbulb'), (className = 'info');
 
 if (alertType == 'success') (iconName = 'mdi:check'), (className = 'success');
+
+if (todayDate == alertEndDate) {
+  className = 'sr-only';
+}
 ---
 
 <div class:list={`alert ${className}`}>
-  <Icon name={iconName} width="25" color="var(--clr-base)" />
-  <div class="content">
-    <h2>{alertTitle.value}</h2>
-    <Fragment set:html={alertBody.processed} />
-  </div>
+  <Icon name={iconName} width="30" color="var(--clr-base)" />
+  <p>
+    <span>{alertCreatedDate}:</span>
+    {alertBody}
+  </p>
 </div>
 
 <style>
@@ -50,7 +64,7 @@ if (alertType == 'success') (iconName = 'mdi:check'), (className = 'success');
 
   .alert {
     background-color: hsl(var(--alert-bg-hs) calc(var(--alert-bg-l) + 30%));
-    padding: 1em;
+    padding: 0.5em;
     max-width: 50rem;
     margin: 5rem auto;
     font-size: var(--fs-1);
@@ -58,10 +72,10 @@ if (alertType == 'success') (iconName = 'mdi:check'), (className = 'success');
     align-items: flex-start;
     gap: 0.5em;
     border-left: 15px solid var(--alert-bg);
+    line-height: 1.4;
+  }
 
-    h2 {
-      font-size: var(--fs-3);
-      padding-bottom: 0.5em;
-    }
+  span {
+    font-weight: var(--fw-7);
   }
 </style>
