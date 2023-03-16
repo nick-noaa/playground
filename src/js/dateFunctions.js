@@ -6,3 +6,5 @@ const changeDateFormat = date => {
     day: 'numeric',
   });
 };
+
+export default changeDateFormat;
